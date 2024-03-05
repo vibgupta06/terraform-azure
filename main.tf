@@ -14,7 +14,7 @@ provider "azurerm" {
 #Craete resource group
 resource "azurerm_resource_group" "main" {
     name = "tf-rg-eastus"
-    location = "eastus"
+    location = var.location
 }
 
 #Craete Virtual Network
@@ -22,7 +22,7 @@ resource "azurerm_virtual_network" "main" {
     name = "tf-vnet-eastus"
     location = azurerm_resource_group.main.location
     resource_group_name = azurerm_resource_group.main.name
-    address_space = ["10.0.0.0/16"]
+    address_space = [var.address_space]
 }
 
 #Create subnet
@@ -30,7 +30,7 @@ resource "azurerm_subnet" "main"{
     name = "tf-subnet-eastus"
     virtual_network_name = azurerm_virtual_network.main.name
     resource_group_name = azurerm_resource_group.main.name
-    address_prefixes = ["10.0.0.0/24"]
+    address_prefixes = [var.address_prefixes]
 }
 
 # Create NIC (Network interface card)
@@ -51,15 +51,15 @@ resource "azurerm_windows_virtual_machine" "main" {
     name = "tf-vm-eastus"
     resource_group_name = azurerm_resource_group.main.name
     location = azurerm_resource_group.main.location
-    size = "Standard_B1s"
-    admin_username = "user.admin"
-    admin_password = "admin@123"
+    size = var.size
+    admin_username = var.admin_username
+    admin_password = var.admin_password
     network_interface_ids = [
         azurerm_network_interface.internal.id
     ]
     os_disk {
         caching = "ReadWrite"
-        storage_account_type = "Standard_LRS"
+        storage_account_type = var.storage_account_type
     }
     source_image_reference {
       publisher = "MicrosoftWindowsServer"
@@ -68,4 +68,3 @@ resource "azurerm_windows_virtual_machine" "main" {
       version = "latest"
     }
 }
-
