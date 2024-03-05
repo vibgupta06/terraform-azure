@@ -1,5 +1,7 @@
 # terraform-azure
 
+Prerequisite: Install Azure cli, Install terraform cli
+
 az login
 
 terraform validate
