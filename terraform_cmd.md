@@ -17,3 +17,5 @@ terraform graph: It generated a diagraph based on the plan
 terraform show: It displays the current state of deployed resources
 
 terraform destroy: It deletes all the deployed resources from the cloud
+
+terraform validate: It validates syntax in configuration file
