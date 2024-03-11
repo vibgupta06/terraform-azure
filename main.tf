@@ -70,3 +70,10 @@ resource "azurerm_windows_virtual_machine" "main" {
   }
 }
 
+module "StorageAccount" {
+    source = "./StorageAccount"
+    storage_account_name = "tfStorageAccount"
+    resource_group_name = azurerm_resource_group.main.name
+    location = var.location
+}
+
