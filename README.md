@@ -12,4 +12,4 @@ terraform plan  -var="admin_password=<password>"
 
 terraform apply
 
-**Output:** It will create a Resource group, a virtual network, a subnet, a network interface card (NIC), a windows 2019 virtual machine and a module based storage account
+**Output:** It will create a Resource group, a virtual network, a subnet, two network interface cards (NIC) using loops, two  windows 2019 virtual machines with loops and a module based storage account
