@@ -19,3 +19,7 @@ terraform show: It displays the current state of deployed resources
 terraform destroy: It deletes all the deployed resources from the cloud
 
 terraform validate: It validates syntax in configuration file
+
+terraform state list : It lists all the resources cuurently deployed by terraform
+
+terraform destroy --target <resource name from the state list cmd>: It destroys the specific resource tied to the provided target value
