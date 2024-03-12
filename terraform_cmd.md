@@ -22,4 +22,4 @@ terraform validate: It validates syntax in configuration file
 
 terraform state list : It lists all the resources cuurently deployed by terraform
 
-terraform destroy --target <resource name from the state list cmd>: It destroys the specific resource tied to the provided target value
+terraform destroy --target <resource name from the state list cmd> : It destroys the specific resource tied to the provided target value
